@@ -1,9 +1,16 @@
 const express = require('express')
+const StudentModel = require('../models/StudentModel')
 const router = express.Router()
 
 //URL: localhost:3000/student
 router.get('/', (req, res) => {
-  res.send('test thu xem sao')
+  StudentModel.find((err, data) => {
+    if (!err) {
+      //res.send(data)
+      //render ra trang index ở thư mục views/student
+      res.render('student/index', { sinhvien: data })
+    }
+  })
 })
 
 module.exports = router
