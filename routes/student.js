@@ -41,13 +41,13 @@ router.get('/add', (req, res) => {
     res.render("student/new");
 })
 
-//xử lý dữ liệu từ form ADD
+//nhận & xử lý dữ liệu từ form ADD
 router.post('/add', (req, res) => {
-   var student = new StudentModel(req.body);
+   var student = new StudentModel(req.body)
    student.save((err) => {
       if (!err) {
         console.log ("Add student succeed !")
-        res.redirect("/student");
+        res.redirect("/student")
       }
    })
 })
@@ -61,6 +61,18 @@ router.get('/edit/:id', (req, res) => {
          //student (tên) , data (dữ liệu)
          res.render("student/update", { student : data })
       }
+   })
+})
+
+//nhận & xử lý dữ liệu từ form EDIT
+router.post('/edit/:id', (req, res) => {
+   var id = req.params.id;
+   var student = req.body;
+   StudentModel.findByIdAndUpdate(id, student, (err) => {
+     if (!err) {
+        console.log ("Update student succeed !")
+        res.redirect("/student")
+     }
    })
 })
 

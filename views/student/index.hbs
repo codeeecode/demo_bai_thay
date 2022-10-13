@@ -2,7 +2,7 @@
    <tr>
       <th class="text-primary" colspan="4">Student List</th>
       <th>
-         <a class="btn btn-primary" href="student/add">ADD</a>   
+         <a class="btn btn-primary" href="student/add">ADD</a>
       </th>
    </tr>
    <tr>
@@ -16,12 +16,12 @@
    <tr>
       <td>{{name}}</td>
       <td>{{gender}}</td>
-      <td>{{dateFormat dob "DD-MM-YYYY"}}</td>
+      <td>{{dateFormat dob "DD/MM/YYYY"}}</td>
       <td>
-          <a href="student/detail/{{_id}}">
+         <a href="student/detail/{{_id}}">
             <img src="{{image}}" width="100" height="100">
          </a>
-         </td>
+      </td>
       <td>
          <a class="btn btn-warning" href="student/edit/{{_id}}">EDIT</a>
          <a class="btn btn-danger" href="student/delete/{{_id}}">DELETE</a>
