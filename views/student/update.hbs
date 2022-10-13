@@ -29,8 +29,7 @@
    </div>
    <div class="form-group mt-3">
       <label class="text-success h6">Student Birthday</label>
-      <span>{{dateFormat student.dob "DD MM YYYY"}}</span>
-      <input class="form-control" type="date" name="dob" value="{{student.dob}}" required id="date">
+      <input class="form-control" type="date" name="dob" value="{{dateFormat student.dob 'YYYY-MM-DD'}}" required>
    </div>
    <div class="form-group mt-3">
       <label class="text-success h6">Student Year</label>
