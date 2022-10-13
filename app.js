@@ -12,7 +12,8 @@ var cors = require('cors')
 
 var mongoose = require('mongoose')
 var url =
-  'mongodb+srv://longndt:xdHB48B3Fv*%40TPa@cluster0.i5kings.mongodb.net/cloud'
+  'mongodb://localhost:27017/cloud'
+
 mongoose.connect(url, { useNewUrlParser: true }, err => {
   if (!err) {
     console.log('DB connect succeed !')
