@@ -43,13 +43,26 @@ router.get('/add', (req, res) => {
 
 //nhận & xử lý dữ liệu từ form ADD
 router.post('/add', (req, res) => {
+    //cách 1 dùng "save"
     var student = new StudentModel(req.body)
     student.save((err) => {
-        if (!err) {
+        if (err) {
+            console.log(err)
+        } else {
+
             console.log("Add student succeed !")
             res.redirect("/student")
         }
+
     })
+
+    //cách 2 dùng "create"
+    // StudentModel.create(req.body, (err) => {
+    //     if (!err) {
+    //         console.log('Add student succeed !')
+    //         res.redirect("/student")
+    //     }
+    // })
 })
 
 //render ra form EDIT
@@ -137,6 +150,14 @@ router.post('/api/add', (req, res) => {
         if (!err) {
             res.json({ "Message": "Add succeed !" })
         }
+    })
+})
+
+//delete all
+router.get('/drop', (req, res) => {
+    StudentModel.deleteMany({}, () => {
+        console.log("Delete all data succeed !")
+        res.redirect('/student')
     })
 })
 
